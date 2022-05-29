@@ -9,15 +9,15 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     let val = [
-      // TODO: change thats
-      "strict:stress and feel bad to work with",
-      "noto:blossom",
-      "noto:cactus",
-      "noto:avocado",
-      "noto:cookie",
-      "noto:crystal-ball",
-      "noto:peach",
-      "noto:gorilla",
+// TODO: only definitions for now
+      "Honest:telling the truth or able to be trusted and not likely to steal, cheat, or lie",
+      "Brave:showing no fear of dangerous or difficult things",
+      "Compassionate:feeling or showing sympathy and sadness for the suffering or bad luck of others, and wanting to help them",
+      "Leader:a person in control of a group, country, or situation",
+      "Unselfish:An unselfish person thinks about what is good for other people, not just about their own advantage",
+      "Loyal:firm and not changing in your friendship with or support for a person or an organization, or in your belief in your principles",
+      "Humble:not proud or not believing that you are important",
+      "Selfish:Someone who is selfish only thinks of their own advantage",
     ];
     val = val.concat(val).sort(randomSort);
     this.state = {
