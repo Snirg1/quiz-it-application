@@ -1,21 +1,19 @@
 import Button from 'react-bootstrap/Button'
-
+import "../App.css";
 
 const WelcomeView = (props) => {
 
     return (
-        <div className="container bg-light">
-            <div className="col-md-12 text-center">
-                <Button variant="primary" size="lg" disabled>
-                    Play
-                </Button>{' '}
-                <Button variant="secondary" size="lg" disabled>
-                    Instructions
-                </Button>{' '}
-                <Button href="#" variant="secondary" size="lg" disabled>
-                    About
-                </Button>
-            </div>
+        <div className="d-grid">
+            <Button variant="primary" size="lg">
+                Play
+            </Button>
+            <Button variant="secondary" size="lg">
+                Instructions
+            </Button>
+            <Button variant="secondary" size="lg">
+                About
+            </Button>
         </div>
     )
 
