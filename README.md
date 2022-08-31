@@ -1,5 +1,3 @@
-# Quiz-App
-
 # How to start it?
 
   `cd quiz-app`
@@ -13,5 +11,3 @@
   `cd ..`
 
   `npm backend`
-  
-  
