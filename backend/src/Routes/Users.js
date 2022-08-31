@@ -8,6 +8,7 @@ Router.post("/create", (req, res) => {
   const { uid, name, email } = req.body;
   if (!uid) return res.status(500).json({ error: "Incomplete Parameters" });
 
+  console.log("HERE")
   DB.createUser(uid, name, email, res);
 });
 
