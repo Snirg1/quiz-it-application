@@ -5,6 +5,7 @@ const path = require("path");
 const userRoute = require("./Routes/Users");
 const quizzesRoute = require("./Routes/Quizzes");
 
+
 app.use(express.static(path.join(__dirname, "/public/")));
 
 // Middleware
