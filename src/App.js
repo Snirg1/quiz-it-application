@@ -20,33 +20,23 @@ import Responses from "./screens/Response/Responses";
 const App = () => {
     const [user, setUser] = useState({});
     useEffect(() => {
-        console.log("USER ID:" +user.uid);
         const createUserInDB = async () => {
             if (user.uid)
-                if (
-                    firebase.auth().currentUser.metadata.lastSignInTime ===
+                if (firebase.auth().currentUser.metadata.lastSignInTime ===
                     firebase.auth().currentUser.metadata.creationTime
                 ) {
                     try {
-                        await fetch("/API/users/create",
-                            {
-                                method: "POST",
-                                body: JSON.stringify(
-                                    {
-                                        uid: user.uid,
-                                        name: user.name,
-                                        email: user.email,
-                                    }),
-                                headers: {"Content-Type": "application/json",},
-                            });
+                        await fetch("/API/users/create", {
+                            method: "POST",
+                            body: JSON.stringify({uid: user.uid, name: user.name, email: user.email,}),
+                            headers: {"Content-Type": "application/json",},
+                        });
                         console.log("posted");
                     } catch (error) {
                         console.log("User Creation Error: ", error);
                     }
                 }
         };
-
-
         createUserInDB();
     }, [user]);
 
@@ -63,7 +53,7 @@ const App = () => {
                         <Route exact path="/">
                             <OneTimeDashBoard user={user}/>
                         </Route>
-                        <Route> path="</Route>
+
                         <Route path="/dashboard">
                             <UserDashboard user={user}/>
                         </Route>
@@ -88,4 +78,3 @@ const App = () => {
 };
 
 export default App;
-// 1. Works
