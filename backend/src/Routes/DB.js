@@ -14,7 +14,12 @@ const DBStart = async () => {
   });
   console.log("DB Connected Successfully.");
   db = client.db("quiz-app");
+
+  db.collection("test").insertOne({a:123,b: 'Snir'})
+
 };
+
+
 DBStart();
 const withDB = async (operations, res) => {
   try {
@@ -30,7 +35,7 @@ const createUser = async (uid, name, email, res) => {
   await withDB(async (db) => {
     const user = await db.collection("users").findOne({ uid: uid });
     if (!user) {
-      const result = await db.collection("users").insertOne({
+        let result = await db.collection("users").insertOne({
         uid,
         name,
         email,
@@ -38,7 +43,7 @@ const createUser = async (uid, name, email, res) => {
         attemptedQuiz: [],
       });
       res.status(200).json({ message: "User Created successfully." });
-      console.log("User Created successfully.")
+      console.warn("User Created successfully.")
     } else {
       res.status(200).json({ message: "User Record Exist" });
     }
