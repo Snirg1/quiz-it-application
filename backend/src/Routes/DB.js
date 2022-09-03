@@ -30,7 +30,6 @@ const withDB = async (operations, res) => {
 };
 
 const createUser = async (uid, name, email, res) => {
-  console.log('creating user...');
   await withDB(async (db) => {
     const user = await db.collection("users").findOne({ uid: uid });
     if (!user) {
@@ -50,28 +49,28 @@ const createUser = async (uid, name, email, res) => {
 };
 
 
-const createQuiz = async (quiz, res) => {
-  try {
-    await withDB(async (db) => {
-      quiz["responses"] = [];
-      const result = await db.collection("quizzes").insertOne(quiz);
-      res.status(200).json({
-        message: "Quiz created successfully",
-        quizId: result.insertedId,
-      });
-      console.log("quiz ID", result.insertedId);
-      const query = { uid: quiz.uid };
-      const addQuiz = {
-        $push: { createdQuiz: result.insertedId },
-      };
-      await db.collection("users").updateOne(query, addQuiz);
-      console.log("Quiz Added to Creator Document: ", result.insertedId);
-    });
-  } catch (error) {
-    res.status(200).json({ message: "Error creating quiz", error });
-    console.log("Error : ", error);
-  }
-};
+// const createQuiz = async (quiz, res) => {
+//   try {
+//     await withDB(async (db) => {
+//       quiz["responses"] = [];
+//       const result = await db.collection("quizzes").insertOne(quiz);
+//       res.status(200).json({
+//         message: "Quiz created successfully",
+//         quizId: result.insertedId,
+//       });
+//       console.log("quiz ID", result.insertedId);
+//       const query = { uid: quiz.uid };
+//       const addQuiz = {
+//         $push: { createdQuiz: result.insertedId },
+//       };
+//       await db.collection("users").updateOne(query, addQuiz);
+//       console.log("Quiz Added to Creator Document: ", result.insertedId);
+//     });
+//   } catch (error) {
+//     res.status(200).json({ message: "Error creating quiz", error });
+//     console.log("Error : ", error);
+//   }
+// };
 
 const submitQuiz = async (submittedQuiz, res) => {
   withDB(async (db) => {
@@ -162,6 +161,6 @@ const getResponses = (obj, res) => {
 
 module.exports.withDB = withDB;
 module.exports.createUser = createUser;
-module.exports.createQuiz = createQuiz;
+// module.exports.createQuiz = createQuiz;
 module.exports.submitQuiz = submitQuiz;
 module.exports.getResponses = getResponses;

@@ -51,45 +51,45 @@ Router.post("/submit", (req, res) => {
   DB.submitQuiz(quiz, res);
 });
 
-// Create Quiz
-Router.post("/create", (req, res) => {
-  const quiz = req.body;
-  if (!quiz) return res.status(500).json({ error: "Incomplete Parameters" });
+// // Create Quiz
+// Router.post("/create", (req, res) => {
+//   const quiz = req.body;
+//   if (!quiz) return res.status(500).json({ error: "Incomplete Parameters" });
+//
+//   quiz.questions.forEach((question, i) => {
+//     question["id"] = i + 1;
+//   });
+//   DB.createQuiz(quiz, res);
+// });
 
-  quiz.questions.forEach((question, i) => {
-    question["id"] = i + 1;
-  });
-  DB.createQuiz(quiz, res);
-});
-
-Router.post("/edit", (req, res) => {
-  const { quizId, uid, title, questions, isOpen } = req.body;
-
-  DB.withDB(async (db) => {
-    try {
-      await db.collection("quizzes").updateOne(
-        {
-          $and: [{ uid }, { _id: ObjectId(quizId) }],
-        },
-        {
-          $set: {
-            title,
-            questions,
-            isOpen,
-          },
-        },
-        (err, result) => {
-          if (err) throw err;
-          res.status(200).json({
-            message: "Quiz Updated Successfully.",
-          });
-        }
-      );
-    } catch (error) {
-      res.status(500).json({ error });
-    }
-  });
-});
+// Router.post("/edit", (req, res) => {
+//   const { quizId, uid, title, questions, isOpen } = req.body;
+//
+//   DB.withDB(async (db) => {
+//     try {
+//       await db.collection("quizzes").updateOne(
+//         {
+//           $and: [{ uid }, { _id: ObjectId(quizId) }],
+//         },
+//         {
+//           $set: {
+//             title,
+//             questions,
+//             isOpen,
+//           },
+//         },
+//         (err, result) => {
+//           if (err) throw err;
+//           res.status(200).json({
+//             message: "Quiz Updated Successfully.",
+//           });
+//         }
+//       );
+//     } catch (error) {
+//       res.status(500).json({ error });
+//     }
+//   });
+// });
 
 Router.post("/responses", (req, res) => {
   const reqBody = req.body;

@@ -57,13 +57,13 @@ const App = () => {
                         <Route path="/dashboard">
                             <UserDashboard user={user}/>
                         </Route>
-                        <Route path="/create-quiz">
-                            <CreateQuiz user={user}/>
-                        </Route>
-                        <Route
-                            path="/created-succesfully/:quizCode"
-                            component={CreatedSuccesfully}
-                        />
+                        {/*<Route path="/create-quiz">*/}
+                        {/*    <CreateQuiz user={user}/>*/}
+                        {/*</Route>*/}
+                        {/*<Route*/}
+                        {/*    path="/created-succesfully/:quizCode"*/}
+                        {/*    component={CreatedSuccesfully}*/}
+                        {/*/>*/}
                         <Route path="/join-quiz">
                             <JoinQuiz user={user}/>
                         </Route>
