@@ -28,8 +28,8 @@ const App = () => {
                     try {
                         await fetch("/API/users/create", {
                             method: "POST",
-                            body: JSON.stringify({uid: user.uid, name: user.name, email: user.email,}),
-                            headers: {"Content-Type": "application/json",},
+                            body: JSON.stringify({uid: user.uid, name: user.name, email: user.email}),
+                            headers: {"Content-Type": "application/json"}
                         });
                         console.log("posted");
                     } catch (error) {

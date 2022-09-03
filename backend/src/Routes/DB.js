@@ -15,8 +15,6 @@ const DBStart = async () => {
   console.log("DB Connected Successfully.");
   db = client.db("quiz-app");
 
-  db.collection("test").insertOne({a:123,b: 'Snir'})
-
 };
 
 
@@ -32,6 +30,7 @@ const withDB = async (operations, res) => {
 };
 
 const createUser = async (uid, name, email, res) => {
+  console.log('creating user...');
   await withDB(async (db) => {
     const user = await db.collection("users").findOne({ uid: uid });
     if (!user) {
