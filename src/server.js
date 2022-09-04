@@ -22,7 +22,7 @@ app.use("/API/quizzes", quizzesRoute);
 
     app.use(express.static('/client/build'))
     app.use("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+        res.sendFile('/../client/build/index.html');
     });
 // app.use("*", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
