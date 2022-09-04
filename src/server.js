@@ -15,15 +15,22 @@ app.use("/API/quizzes", quizzesRoute);
 
 app.use(express.static(path.join(__dirname, 'build')));
 // app.use(express.static('build')));
-// if (process.env.NODE_ENV === 'production')
-// {
-//   app.use(express.static('/'))
-// }
+
 app.use("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('/client/build'))
+    app.use("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+app.use("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
 // Listening to APIs
 app.listen(process.env.PORT || 8000, () =>
-  console.log("Listening on Port 8000")
+    console.log("Listening on Port 8000")
 );
