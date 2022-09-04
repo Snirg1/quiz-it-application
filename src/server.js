@@ -21,7 +21,7 @@ app.use(express.json());
 app.use("/API/users", userRoute);
 app.use("/API/quizzes", quizzesRoute);
 
-app.use(express.static( '/client/build'));
+app.use(express.static( path.join(appRoot,'/client/build')));
 
 app.use("*", (req, res) => {
     res.sendFile(path.join(appRoot,"/client/public/index.html"));
