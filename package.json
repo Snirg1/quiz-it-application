@@ -2,9 +2,9 @@
   "name": "empaty-game-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server",
+  "main": "server",
   "scripts": {
-    "start": "nodemon src/server",
+    "start": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client "
   },

@@ -12,7 +12,6 @@ const quizzesRoute = require("./Routes/Quizzes");
 // app.use("*", (req, res) => {
 //     res.sendFile('/../client/build/index.html');
 // });
-let appRoot = '/../';
 
 app.use(express.static('/client/public'));
 
