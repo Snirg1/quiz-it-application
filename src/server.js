@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/API/users", userRoute);
 app.use("/API/quizzes", quizzesRoute);
 
-// app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.resolve(__dirname, 'client', 'build', 'index.html')));
 // app.use(express.static('build')));
 
 // app.use("*", (req, res) => {
