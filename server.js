@@ -14,17 +14,17 @@ const quizzesRoute = require("./Routes/Quizzes");
 // });
 
 
-app.use(express.static('/../client/public'));
+app.use(express.static('/client/public'));
 
 // Middleware
 app.use(express.json());
 app.use("/API/users", userRoute);
 app.use("/API/quizzes", quizzesRoute);
 
-app.use(express.static( '/../client/build'));
+app.use(express.static( '/client/build'));
 
 app.use("*", (req, res) => {
-    res.sendFile("/../client/public/index.html");
+    res.sendFile("/client/public/index.html");
 });
 
 // Listening to APIs
