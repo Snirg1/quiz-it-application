@@ -20,12 +20,11 @@ app.use("/API/quizzes", quizzesRoute);
 //     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
 
-if (process.env.NODE_ENV === 'production') {
     app.use(express.static('/client/build'))
     app.use("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
-}
+
 // app.use("*", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
