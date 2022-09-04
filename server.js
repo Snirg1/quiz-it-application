@@ -24,7 +24,7 @@ app.use("/API/quizzes", quizzesRoute);
 app.use(express.static( '/client/build'));
 
 app.use("*", (req, res) => {
-    res.sendFile(appRoot+"/client/public/index.html");
+    res.sendFile("/client/public/index.html");
 });
 
 // Listening to APIs
