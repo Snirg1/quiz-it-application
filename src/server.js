@@ -4,6 +4,7 @@ const app = express();
 const path = require("path");
 const userRoute = require("./Routes/Users");
 const quizzesRoute = require("./Routes/Quizzes");
+const appRoot = require("../rootPath")
 //
 //
 // app.use(express.static("/../client/public/"));
@@ -23,7 +24,7 @@ app.use("/API/quizzes", quizzesRoute);
 app.use(express.static( '/client/build'));
 
 app.use("*", (req, res) => {
-    res.sendFile("/client/public/index.html");
+    res.sendFile(path.join(appRoot,"/client/public/index.html"));
 });
 
 // Listening to APIs
