@@ -6,14 +6,14 @@ const userRoute = require("./Routes/Users");
 const quizzesRoute = require("./Routes/Quizzes");
 
 
-// app.use(express.static(path.join(__dirname, "/public/")));
+app.use(express.static(path.join(__dirname, "/client/build/")));
 
 // Middleware
 app.use(express.json());
 app.use("/API/users", userRoute);
 app.use("/API/quizzes", quizzesRoute);
 
-app.use(express.static(path.resolve(__dirname, 'client', 'build', 'index.html')));
+// app.use(express.static(path.join(__dirname, 'build')));
 // app.use(express.static('build')));
 
 // app.use("*", (req, res) => {
@@ -24,7 +24,6 @@ app.use(express.static(path.resolve(__dirname, 'client', 'build', 'index.html'))
     app.use("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
-
 // app.use("*", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
