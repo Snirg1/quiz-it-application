@@ -12,7 +12,7 @@ const quizzesRoute = require("./Routes/Quizzes");
 // app.use("*", (req, res) => {
 //     res.sendFile('/../client/build/index.html');
 // });
-
+let appRoot = '/../';
 
 app.use(express.static('/client/public'));
 
@@ -24,7 +24,7 @@ app.use("/API/quizzes", quizzesRoute);
 app.use(express.static( '/client/build'));
 
 app.use("*", (req, res) => {
-    res.sendFile("/client/public/index.html");
+    res.sendFile(path.join(appRoot,"/client/public/index.html"));
 });
 
 // Listening to APIs
