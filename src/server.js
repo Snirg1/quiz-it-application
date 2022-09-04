@@ -15,7 +15,10 @@ app.use("/API/quizzes", quizzesRoute);
 
 app.use(express.static(path.join(__dirname, 'build')));
 // app.use(express.static('build')));
-
+// if (process.env.NODE_ENV === 'production')
+// {
+//   app.use(express.static('/'))
+// }
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
