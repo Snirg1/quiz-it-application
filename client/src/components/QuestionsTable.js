@@ -381,7 +381,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5]}
+          rowsPerPageOptions={[1]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
