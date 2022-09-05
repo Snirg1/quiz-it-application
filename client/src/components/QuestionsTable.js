@@ -247,7 +247,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
     setQuestionArray(temp);
   };
 
-  const rowsPerPage = 5;
+  const rowsPerPage = 1;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
