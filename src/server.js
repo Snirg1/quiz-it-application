@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/API/users", userRoute);
 app.use("/API/quizzes", quizzesRoute);
 
-//
+// serve static assets
 app.use(express.static(path.join(appRoot,'/client/build')));
 app.use("*", (req, res) => {
     res.sendFile(path.join(appRoot,"/client/public/index.html"));
