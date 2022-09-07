@@ -3,8 +3,8 @@
   --light-shadow: #b5c2c2;
   --primary: #ffffff;
   --secondary: #fba1a1;
-  --accent-bhagwa: #1639aa;
-  --accent-red: #610808;
+  --accent-bhagwa: #fba1a1;
+  --accent-red: #f66dea;
   --gradient: linear-gradient(
     to right,
     var(--secondary) -10%,

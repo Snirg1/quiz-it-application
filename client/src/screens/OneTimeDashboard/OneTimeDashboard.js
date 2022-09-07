@@ -6,6 +6,7 @@ const OneTimeDashboard = ({ user }) => {
   const [path, setPath] = useState("");
   // Path Redirection
   const onDashboard = () => setPath("/dashboard");
+  const onAbout = () => setPath("/about");
   const onCreateQuiz = () => setPath("/create-quiz");
   const onJoinQuiz = () => setPath("/join-quiz");
 
@@ -26,6 +27,9 @@ const OneTimeDashboard = ({ user }) => {
           </button>
           <button className="button one-time-button" onClick={onJoinQuiz}>
             Join Quiz
+          </button>
+          <button className="button one-time-button" onClick={onAbout}>
+            About
           </button>
         </div>
         <div className="blob-svg">

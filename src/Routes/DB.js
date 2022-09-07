@@ -94,6 +94,7 @@ const submitQuiz = async (submittedQuiz, res) => {
           error: "ERR:QUIZ_ALREADY_ATTEMPTED",
         });
       }
+
       const cursor = db
         .collection("quizzes")
         .find({ _id: new ObjectId(submittedQuiz.quizId) })

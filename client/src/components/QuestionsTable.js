@@ -240,6 +240,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
   const [orderBy, setOrderBy] = React.useState("");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(1);
 
   const editQuestionHandle = (title, optionType, options, index) => {
     const temp = [...questionArray];
@@ -247,7 +248,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
     setQuestionArray(temp);
   };
 
-  const rowsPerPage = 1;
+  // const rowsPerPage = 1;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -287,10 +288,11 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
     setPage(newPage);
   };
 
-  // const handleChangeRowsPerPage = (event) => {
-  // 	setRowsPerPage(parseInt(event.target.value, 10));
-  // 	setPage(0);
-  // };
+
+  const handleChangeRowsPerPage = (event) => {
+  	setRowsPerPage(parseInt(event.target.value, 10));
+  	setPage(0);
+  };
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
@@ -386,8 +388,8 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
           count={rows.length}
           rowsPerPage={rowsPerPage}
           page={page}
-          onChangePage={handleChangePage}
-          // onChangeRowsPerPage={handleChangeRowsPerPage}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
     </div>
