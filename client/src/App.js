@@ -16,6 +16,7 @@ import NotFoundPage from "./screens/NotFoundPage";
 import AttemptQuiz from "./screens/Attempted/AttemptQuiz";
 import Appbar from "./components/Appbar/Appbar";
 import Responses from "./screens/Response/Responses";
+import About from "./screens/About/About";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -67,6 +68,7 @@ const App = () => {
                         <Route path="/join-quiz">
                             <JoinQuiz user={user}/>
                         </Route>
+                        <Route path="/about" component={About}/>
                         <Route path="/attempt-quiz/:quizCode" component={AttemptQuiz}/>
                         <Route path="/responses/:quizCode" component={Responses}/>
                         <Route component={NotFoundPage}/>

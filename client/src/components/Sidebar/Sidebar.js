@@ -33,6 +33,12 @@ function Sidebar() {
 			icon: <CreateNewFolder />,
 			CName: 'nav-text',
 		},
+		{
+			title: 'About',
+			path: '/about',
+			icon: <MeetingRoom />,
+			CName: 'nav-text',
+		},
 	]
 	const [sidebar, setSidebar] = useState(false)
 	const showSidebar = () => setSidebar(!sidebar)

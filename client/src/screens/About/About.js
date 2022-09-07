@@ -1,19 +1,22 @@
 import "./About.css";
 import "./about_content"
 import React, {useState} from "react";
-import rootPath from "../../../../rootPath"
 import {Redirect} from "react-router-dom";
 
 
 const About = () => {
     const [path, setPath] = useState("/about");
-    const onOneTimeDashboard = () => setPath("");
+    const onOneTimeDashboard = () => {
+        console.log('onOneTimeDashboard');
+        setValid('true');
+        setPath('');
+    }
     const [valid, setValid] = useState("false");
     const [code, setCode] = useState("");
 
 
     // here we check if we need to be redirected to other screen (also other URL)
-    if (path.len === 0) return <Redirect to={``} />;
+    if (valid === 'true') return <Redirect to={path}/>;
     return (
         <div id="about">
             <div id="about-div">
