@@ -55,7 +55,6 @@ const App = () => {
                         <Route exact path="/">
                             <OneTimeDashBoard user={user}/>
                         </Route>
-
                         <Route path="/dashboard">
                             <UserDashboard user={user}/>
                         </Route>

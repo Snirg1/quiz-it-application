@@ -9,7 +9,7 @@ import {
 	ExitToApp,
 	MeetingRoom,
 	MenuOpenRounded,
-	MenuRounded,
+	MenuRounded, PermMedia, Policy,
 } from '@material-ui/icons'
 
 function Sidebar() {
@@ -31,6 +31,12 @@ function Sidebar() {
 			title: 'Create Quiz',
 			path: '/create-quiz',
 			icon: <CreateNewFolder />,
+			CName: 'nav-text',
+		},
+		{
+			title: 'About',
+			path: '/about',
+			icon: <Policy />,
 			CName: 'nav-text',
 		},
 	]
