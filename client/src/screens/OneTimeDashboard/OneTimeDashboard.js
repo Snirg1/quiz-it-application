@@ -7,7 +7,7 @@ const OneTimeDashboard = ({ user }) => {
   // Path Redirection
   const onAbout = () => setPath("/about");
   const onDashboard = () => setPath("/dashboard");
-  const onCreateQuiz = () => setPath("/create-quiz");
+  // const onCreateQuiz = () => setPath("/create-quiz");
   const onJoinQuiz = () => setPath("/join-quiz");
 
   if (path.length > 0) return <Redirect push to={path} />;
@@ -22,9 +22,9 @@ const OneTimeDashboard = ({ user }) => {
           <button className="button one-time-button" onClick={onDashboard}>
             Dashboard
           </button>
-          <button className="button one-time-button" onClick={onCreateQuiz}>
-            Create Quiz
-          </button>
+          {/*<button className="button one-time-button" onClick={onCreateQuiz}>*/}
+          {/*  Create Quiz*/}
+          {/*</button>*/}
           <button className="button one-time-button" onClick={onJoinQuiz}>
             Join Quiz
           </button>

@@ -27,12 +27,12 @@ function Sidebar() {
 			icon: <MeetingRoom />,
 			CName: 'nav-text',
 		},
-		{
-			title: 'Create Quiz',
-			path: '/create-quiz',
-			icon: <CreateNewFolder />,
-			CName: 'nav-text',
-		},
+		// {
+		// 	title: 'Create Quiz',
+		// 	path: '/create-quiz',
+		// 	icon: <CreateNewFolder />,
+		// 	CName: 'nav-text',
+		// },
 		{
 			title: 'About',
 			path: '/about',
