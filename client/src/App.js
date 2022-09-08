@@ -9,7 +9,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Home from "./screens/Home/Home";
 import OneTimeDashBoard from "./screens/OneTimeDashboard/OneTimeDashboard";
 // import CreateQuiz from "./screens/CreateQuiz/CreateQuiz";
-import JoinQuiz from "./screens/JoinQuiz/JoinQuiz";
+// import JoinQuiz from "./screens/JoinQuiz/JoinQuiz";
 import UserDashboard from "./screens/UserDashboard/UserDashboard";
 import CreatedSuccesfully from "./screens/CreatedSuccesfully/CreatedSuccesfully";
 import NotFoundPage from "./screens/NotFoundPage";
@@ -65,9 +65,9 @@ const App = () => {
                             path="/created-succesfully/:quizCode"
                             component={CreatedSuccesfully}
                         />
-                        <Route path="/join-quiz">
-                            <JoinQuiz user={user}/>
-                        </Route>
+                        {/*<Route path="/join-quiz">*/}
+                        {/*    <JoinQuiz user={user}/>*/}
+                        {/*</Route>*/}
                         <Route path="/about" component={About}/>
                         <Route path="/attempt-quiz/:quizCode" component={AttemptQuiz}/>
                         <Route path="/responses/:quizCode" component={Responses}/>

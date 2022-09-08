@@ -21,12 +21,12 @@ function Sidebar() {
 			icon: <Dashboard />,
 			CName: 'nav-text',
 		},
-		{
-			title: 'Join Quiz',
-			path: '/join-quiz',
-			icon: <MeetingRoom />,
-			CName: 'nav-text',
-		},
+		// {
+		// 	title: 'Join Quiz',
+		// 	path: '/join-quiz',
+		// 	icon: <MeetingRoom />,
+		// 	CName: 'nav-text',
+		// },
 		// {
 		// 	title: 'Create Quiz',
 		// 	path: '/create-quiz',
