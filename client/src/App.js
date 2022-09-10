@@ -20,6 +20,7 @@ import About from './screens/About/About'
 
 const App = () => {
    const [user, setUser] = useState({})
+   const [mainQuizCode, setMainQuizCode] = useState('631c77001d4480a3d04991e3')
 
    // useEffect hook is invoked when App component is mounted
    // Also, when a user's value changes
@@ -39,6 +40,7 @@ const App = () => {
                         uid: user.uid,
                         name: user.name,
                         email: user.email,
+                        lastQuestion: 0,
                      }),
                      headers: { 'Content-Type': 'application/json' },
                   })
@@ -79,7 +81,7 @@ const App = () => {
                      component={CreatedSuccesfully}
                   />
                   <Route path="/join-quiz">
-                     <JoinQuiz user={user} />
+                     <JoinQuiz user={user} quizCode={mainQuizCode} />
                   </Route>
                   <Route
                      path="/attempt-quiz/:quizCode"

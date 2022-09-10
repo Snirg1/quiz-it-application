@@ -1,57 +1,73 @@
-const express = require("express");
-const ObjectId = require("mongodb").ObjectId;
-const Router = express.Router();
-const DB = require("./DB");
-// Create User in DB
+const express = require('express')
+const ObjectId = require('mongodb').ObjectId
+const Router = express.Router()
+const DB = require('./DB')
 
-Router.post("/create", (req, res) => {
-    console.log('posting user...');
-    const {uid, name, email} = req.body;
-    if (!uid) return res.status(500).json({error: "Incomplete Parameters"});
-    DB.createUser(uid, name, email, res);
-});
+// Create User in DB
+Router.post('/create', (req, res) => {
+   console.log('posting user...')
+   const { uid, name, email, lastQuestion } = req.body
+   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+   DB.createUser(uid, name, email, res)
+})
+
+// Update user's last question seen - we will use it for resume game
+Router.post('/paused', (req, res) => {
+   const { uid, name, email, lastQuestion } = req.body
+   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+   DB.updateUserInDB(uid, lastQuestion)
+})
 
 // Get user Data
-Router.get("/:uid", (req, res) => {
-    const uid = req.params.uid;
-    if (!uid) return res.status(500).json({error: "Incomplete Parameters"});
+Router.get('/:uid', (req, res) => {
+   const uid = req.params.uid
+   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
 
-    DB.withDB(async (db) => {
-        const createdCursor = db
-            .collection("quizzes")
-            .find({uid})
+   DB.withDB(async (db) => {
+      const createdCursor = db
+         .collection('quizzes')
+         .find({ uid })
+         .project({
+            isOpen: 1,
+            title: 1,
+            questions: 1,
+            responses: {
+               $size: '$responses',
+            },
+         })
+      const createdQuiz = await createdCursor.toArray()
+      console.log(createdQuiz)
+      const userCursor = await db.collection('users').find({ uid }).project({
+         attemptedQuiz: 1,
+      })
+      const userInfo = await userCursor.toArray()
+      if (userInfo) {
+         const attemptedCursor = db
+            .collection('quizzes')
+            .find({ _id: { $in: userInfo[0].attemptedQuiz } })
             .project({
-                isOpen: 1,
-                title: 1,
-                questions: 1,
-                responses: {
-                    $size: "$responses",
-                },
-            });
-        const createdQuiz = await createdCursor.toArray();
-        console.log(createdQuiz);
-        const userCursor = await db.collection("users").find({uid}).project({
-            attemptedQuiz: 1,
-        });
-        const userInfo = await userCursor.toArray();
-        if (userInfo) {
-            const attemptedCursor = db
-                .collection("quizzes")
-                .find({_id: {$in: userInfo[0].attemptedQuiz}})
-                .project({
-                    title: 1,
-                    totalQuestions: {
-                        $size: "$questions",
-                    },
-                    responses: {$elemMatch: {uid}},
-                });
-            const attemptedQuiz = await attemptedCursor.toArray();
-            console.log(attemptedQuiz);
-            res.status(200).json({createdQuiz, attemptedQuiz});
-        } else {
-            res.status(200).json({createdQuiz});
-        }
-    }, res);
-});
+               title: 1,
+               totalQuestions: {
+                  $size: '$questions',
+               },
+               responses: { $elemMatch: { uid } },
+            })
+         const attemptedQuiz = await attemptedCursor.toArray()
+         console.log(attemptedQuiz)
+         res.status(200).json({ createdQuiz, attemptedQuiz })
+      } else {
+         res.status(200).json({ createdQuiz })
+      }
+   }, res)
+})
 
-module.exports = Router;
+// Router.get('/:uid/lastQuestion', (req, res) => {
+//    let uid = req.params.uid
+//
+//    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+//    let _lastQuestion = DB.getLastQuestionFromDB(uid)
+//    console.log('lastQuestion in line 69 in DB is:' + _lastQuestion)
+//    return res.status(200).json({ _lastQuestion })
+// })
+
+module.exports = Router
