@@ -1,13 +1,19 @@
 # How to start it?
 
-  `cd quiz-app`
+  `cd empathy-game`
 
   `npm install`
 
-  `cd backend`
+  `cd client`
 
   `npm install`
 
   `cd ..`
 
-  `npm backend`
+  `npm start`
+
+ `cd client`
+
+ `npm start`
+    
+

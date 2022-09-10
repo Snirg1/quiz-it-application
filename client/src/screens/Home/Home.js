@@ -21,6 +21,7 @@ const Home = ({setUser}) => {
     };
 
     useEffect(() => {
+        console.log("HOME")
         let isMounted = true;
         firebase.auth().onAuthStateChanged((user) => {
             if (user && isMounted) {
@@ -51,13 +52,16 @@ const Home = ({setUser}) => {
 
                     <div id="logo">
                         <div id="logo-name">
-                            <b>The Other Side</b>
-                        </div>
+                            The <b>Other</b> Side
+                        </div><div></div><div></div><div></div>
                         <div id="description">
-                             Welcome!
+                              <b>B</b>e more <b>EMPATHETIC</b>
+                        </div>
+                        <div></div>
+                        <div id="description">
+                              <b>B</b>ecome a better <b>LEADER</b>
                         </div>
                     </div>
-
                     <div id="login-card">
                         <label className="login-label">
                             <b>Login</b>
