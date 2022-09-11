@@ -14,7 +14,7 @@ Router.post('/create', (req, res) => {
 // Update user's last question seen - we will use it for resume game
 Router.post('/paused', (req, res) => {
    const { uid, lastQuestion } = req.body
-    console.log('The last question was: ', lastQuestion)
+   console.log('The last question was: ', lastQuestion)
    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
    DB.updateUserInDB(uid, lastQuestion)
 })
@@ -62,13 +62,13 @@ Router.get('/:uid', (req, res) => {
    }, res)
 })
 
-Router.get('/:uid/lastQuestion', (req, res) => {
-   let uid = req.params.uid
-
-   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
-   let _lastQuestion = DB.getLastQuestionFromDB(uid)
-   console.log('lastQuestion in line 69 in DB is:' + _lastQuestion)
-   return res.status(200).json({ _lastQuestion })
-})
+// Router.get('/:uid/lastQuestion', (req, res) => {
+//    let uid = req.params.uid
+//
+//    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+//    let _lastQuestion = DB.getLastQuestionFromDB(uid)
+//    console.log('lastQuestion in line 69 in DB is:' + _lastQuestion)
+//    return res.status(200).json({ _lastQuestion })
+// })
 
 module.exports = Router

@@ -19,10 +19,6 @@ app.use('*', (req, res) => {
    res.sendFile(path.join(appRoot, '/client/public/index.html'))
 })
 
-app.get('/API/users/:uid/lastQuestion', (req, res) => {
-   res.status(200).send('Hello World')
-})
-
 // Listening to APIs
 app.listen(process.env.PORT || 8000, () =>
    console.log('Listening on Port 8000'),
