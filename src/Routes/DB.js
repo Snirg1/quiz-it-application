@@ -85,23 +85,23 @@ const createQuiz = async (quiz, res) => {
    }
 }
 
-// const getLastQuestionFromDB = async (_uid, res) => {
-//    try {
-//       let currUser = await db.collection('users').findOne({
-//          uid: _uid,
-//       })
-//       currUser = await currUser.json()
-//       console.log(currUser.body.lastQuestion)
-//       return res.status(200).json({ lastQuestion: currUser.body.lastQuestion })
-//    } catch (error) {
-//       res.status(200).json({ message: 'Error get Last Question', error })
-//       console.log('Error : ', error)
-//    }
-//
-//    console.log('CURR USER IN DB LINE 93 is:' + currUser)
-//    console.log('CURR USER LASTQ IN DB LINE 93 is:' + currUser.lastQuestion)
-//    return currUser.lastQuestion
-// }
+const getLastQuestionFromDB = async (_uid) => {
+   try {
+      let currUser = await db.collection('users').findOne({
+         uid: _uid,
+      })
+      // currUser = await currUser.json()
+      // console.log('getLastQuestionFromDB: ', currUser.lastQuestion)
+      return currUser.lastQuestion
+   } catch (error) {
+      // res.status(200).json({ message: 'Error get Last Question', error })
+      console.log('Error : ', error)
+   }
+
+   // console.log('CURR USER IN DB LINE 93 is:' + currUser)
+   // console.log('CURR USER LASTQ IN DB LINE 93 is:' + currUser.lastQuestion)
+   // return currUser.lastQuestion
+}
 
 const submitQuiz = async (submittedQuiz, res) => {
    withDB(async (db) => {
@@ -192,7 +192,7 @@ const getResponses = (obj, res) => {
 }
 
 module.exports.withDB = withDB
-// module.exports.getLastQuestionFromDB = getLastQuestionFromDB
+module.exports.getLastQuestionFromDB = getLastQuestionFromDB
 module.exports.updateUserInDB = updateUserInDB
 module.exports.createUser = createUser
 module.exports.createQuiz = createQuiz

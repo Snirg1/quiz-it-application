@@ -16,6 +16,7 @@ const AttemptQuiz = ({ match }) => {
    const [currQuestionIndex, setCurrQuestionIndex] = useState(0)
    const [questionsPerPage, setQuestionsPerPage] = useState(1)
    const uid = firebase.auth().currentUser.uid
+
    useEffect(() => {
       const fetchQuiz = async () => {
          const res = await fetch('/API/quizzes/join', {
@@ -51,12 +52,12 @@ const AttemptQuiz = ({ match }) => {
             },
          })
          let resJson = await res.json()
-         console.log('Body: ' + resJson.body)
-         console.log(resJson)
+         const { lastQuestion } = resJson
+         return lastQuestion
       }
 
-      fetchQuiz()
       fetchUserPostionInQuiz()
+      fetchQuiz()
    }, [quizCode, uid])
 
    const handleOptionSelect = (e, option, index) => {
