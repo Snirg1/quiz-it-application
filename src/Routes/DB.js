@@ -20,16 +20,14 @@ const updateUserInDB = async (_uid, _lastQuestion) => {
       await db.collection('users').updateOne(
          { uid: _uid },
          {
-            $push: {
-               lastQuestion: _lastQuestion,
-            },
-         },
+            '$set': {lastQuestion: _lastQuestion}
+         }
       )
    } catch (error) {
       console.log('Error:', error)
-      res.status(500).json({ error })
+      // res.status(500).json({ error })
    }
-   console.log('_lastQuestion: ' + _lastQuestion)
+   // console.log('_lastQuestion: ' + _lastQuestion)
 }
 
 DBStart()
@@ -43,7 +41,7 @@ const withDB = async (operations, res) => {
    }
 }
 
-const createUser = async (uid, name, email, res) => {
+const createUser = async (uid, name, email, lastQuestion, res) => {
    console.log('creating user...')
    await withDB(async (db) => {
       const user = await db.collection('users').findOne({ uid: uid })
@@ -52,6 +50,7 @@ const createUser = async (uid, name, email, res) => {
             uid,
             name,
             email,
+            lastQuestion,
             createdQuiz: [],
             attemptedQuiz: [],
          })

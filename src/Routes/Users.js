@@ -8,12 +8,13 @@ Router.post('/create', (req, res) => {
    console.log('posting user...')
    const { uid, name, email, lastQuestion } = req.body
    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
-   DB.createUser(uid, name, email, res)
+   DB.createUser(uid, name, email, lastQuestion, res)
 })
 
 // Update user's last question seen - we will use it for resume game
 Router.post('/paused', (req, res) => {
-   const { uid, name, email, lastQuestion } = req.body
+   const { uid, lastQuestion } = req.body
+    console.log('The last question was: ', lastQuestion)
    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
    DB.updateUserInDB(uid, lastQuestion)
 })
