@@ -117,8 +117,8 @@ const AttemptQuiz = ({ match }) => {
                'Content-Type': 'application/json',
             },
          })
-         const body = await res.json()
-         console.log('res body : ', body)
+         // const body = await res.json()
+         // console.log('res body : ', body)
       } catch (e) {
          console.log('Error posting quiz checkpoint', e)
       }

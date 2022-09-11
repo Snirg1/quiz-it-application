@@ -51,7 +51,6 @@ const App = () => {
             }
          }
       }
-
       createUserInDB()
    }, [user])
 
