@@ -37,7 +37,7 @@ Router.get('/:uid', (req, res) => {
             },
          })
       const createdQuiz = await createdCursor.toArray()
-      console.log(createdQuiz)
+      // console.log(createdQuiz)
       const userCursor = await db.collection('users').find({ uid }).project({
          attemptedQuiz: 1,
       })
@@ -54,7 +54,7 @@ Router.get('/:uid', (req, res) => {
                responses: { $elemMatch: { uid } },
             })
          const attemptedQuiz = await attemptedCursor.toArray()
-         console.log(attemptedQuiz)
+         // console.log(attemptedQuiz)
          res.status(200).json({ createdQuiz, attemptedQuiz })
       } else {
          res.status(200).json({ createdQuiz })
@@ -62,13 +62,13 @@ Router.get('/:uid', (req, res) => {
    }, res)
 })
 
-Router.get('/:uid/lastQuestion', (req, res) => {
-   let uid = req.params.uid
-
-   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
-   let _lastQuestion = DB.getLastQuestionFromDB(uid)
-   console.log('lastQuestion in line 69 in DB is:' + _lastQuestion)
-   return res.status(200).json({ _lastQuestion })
+Router.get('/:uid/lastQuestion', async (req, res) => {
+  let uid = req.params.uid
+  // console.log('get last question from: ', uid)
+  if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+  let lastQuestion = await DB.getLastQuestionFromDB(uid)
+  console.log('lastQuestion in line 69 in DB is:', lastQuestion)
+  return res.status(200).json({ lastQuestion })
 })
 
 module.exports = Router
