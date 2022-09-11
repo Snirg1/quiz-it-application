@@ -61,13 +61,13 @@ Router.get('/:uid', (req, res) => {
    }, res)
 })
 
-// Router.get('/:uid/lastQuestion', (req, res) => {
-//    let uid = req.params.uid
-//
-//    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
-//    let _lastQuestion = DB.getLastQuestionFromDB(uid)
-//    console.log('lastQuestion in line 69 in DB is:' + _lastQuestion)
-//    return res.status(200).json({ _lastQuestion })
-// })
+Router.get('/:uid/lastQuestion', (req, res) => {
+   let uid = req.params.uid
+
+   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+   let _lastQuestion = DB.getLastQuestionFromDB(uid)
+   console.log('lastQuestion in line 69 in DB is:' + _lastQuestion)
+   return res.status(200).json({ _lastQuestion })
+})
 
 module.exports = Router
