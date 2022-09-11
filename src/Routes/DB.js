@@ -20,8 +20,11 @@ const updateUserInDB = async (_uid, _lastQuestion) => {
       await db.collection('users').updateOne(
          { uid: _uid },
          {
-            '$set': {lastQuestion: _lastQuestion}
-         }
+            $set: { lastQuestion: _lastQuestion },
+         },
+      )
+      console.log(
+         'user is now updated in DB with lastQuestion = ' + _lastQuestion,
       )
    } catch (error) {
       console.log('Error:', error)
@@ -189,6 +192,20 @@ const getResponses = (obj, res) => {
       })
       res.status(200).json({ finalResponse })
    }, res)
+}
+const updateLastQuestionInDB = async (_uid) => {
+   try {
+      await db.collection('users').updateOne(
+         { uid: _uid },
+         {
+            $push: {
+               attemptedQuiz: ObjectId(submittedQuiz.quizId),
+            },
+         },
+      )
+   } catch (error) {
+      console.log('Error:', error)
+   }
 }
 
 module.exports.withDB = withDB

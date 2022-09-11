@@ -63,12 +63,18 @@ Router.get('/:uid', (req, res) => {
 })
 
 Router.get('/:uid/lastQuestion', async (req, res) => {
-  let uid = req.params.uid
-  // console.log('get last question from: ', uid)
-  if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
-  let lastQuestion = await DB.getLastQuestionFromDB(uid)
-  console.log('lastQuestion in line 69 in DB is:', lastQuestion)
-  return res.status(200).json({ lastQuestion })
+   let uid = req.params.uid
+   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+   let lastQuestion = await DB.getLastQuestionFromDB(uid)
+   res.status(200).json({ lastQuestion })
+})
+
+// Set New Game for user
+Router.post('/:uid/lastQuestion/init', async (req, res) => {
+   let uid = req.params.uid
+   if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
+   let lastQuestion = await DB.updateUserInDB(uid, 0)
+   res.status(200).json({ lastQuestion })
 })
 
 module.exports = Router

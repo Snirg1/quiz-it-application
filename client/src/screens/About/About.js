@@ -17,7 +17,7 @@ const About = () => {
       <div id="about">
          <div id="about-div">
             <div id="logo-name">
-               The<b>Other</b>Side
+               <b>About</b>
             </div>
 
             <div className="about-content">

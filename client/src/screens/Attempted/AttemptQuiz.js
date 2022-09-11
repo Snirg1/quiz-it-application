@@ -53,11 +53,12 @@ const AttemptQuiz = ({ match }) => {
          })
          let resJson = await res.json()
          const { lastQuestion } = resJson
+         setCurrQuestionIndex(lastQuestion)
          return lastQuestion
       }
 
-      fetchUserPostionInQuiz()
       fetchQuiz()
+      fetchUserPostionInQuiz()
    }, [quizCode, uid])
 
    const handleOptionSelect = (e, option, index) => {
@@ -104,6 +105,7 @@ const AttemptQuiz = ({ match }) => {
    if (loading) return <LoadingScreen />
 
    const onNextQuestion = () => setCurrQuestionIndex(currQuestionIndex + 1)
+   const onPreviousQuestion = () => setCurrQuestionIndex(currQuestionIndex - 1)
 
    const onPauseGame = async () => {
       setPath('/')
@@ -168,6 +170,7 @@ const AttemptQuiz = ({ match }) => {
          </div>
       )
    else {
+      // here we are slicing the questions that we want to show in single page
       const currPageQuestions = questions.slice(
          currQuestionIndex,
          currQuestionIndex + questionsPerPage,
@@ -189,6 +192,7 @@ const AttemptQuiz = ({ match }) => {
                                  <input
                                     type="radio"
                                     name={`option${index}`}
+                                    defaultChecked={index === 0}
                                     onChange={(e) =>
                                        handleOptionSelect(e, option.text, index)
                                     }
@@ -222,6 +226,14 @@ const AttemptQuiz = ({ match }) => {
                {currQuestionIndex !== questions.length - 1 && (
                   <button className="button wd-200" onClick={onNextQuestion}>
                      Next Question
+                  </button>
+               )}
+               {currQuestionIndex !== 0 && (
+                  <button
+                     className="button wd-200"
+                     onClick={onPreviousQuestion}
+                  >
+                     Previous Question
                   </button>
                )}
                <button className="button wd-200" onClick={onPauseGame}>

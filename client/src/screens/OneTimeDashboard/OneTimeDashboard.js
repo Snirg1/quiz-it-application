@@ -9,6 +9,33 @@ const OneTimeDashboard = ({ user }) => {
    const onAbout = () => setPath('/about')
    // const onCreateQuiz = () => setPath('/create-quiz')
    const onJoinQuiz = () => setPath('/join-quiz')
+   const onStartNewGame = () => {
+      // UPDATE DB WITH USER.LASTQUESTION == 0
+      const setNewGameForUser = async () => {
+         try {
+            const res = await fetch(
+               `/API/users/${user.uid}/lastQuestion/init`,
+               {
+                  method: 'POST',
+                  body: JSON.stringify({
+                     uid: user.uid,
+                     name: user.name,
+                     email: user.email,
+                     lastQuestion: 0,
+                  }),
+                  headers: {
+                     'Content-Type': 'application/json',
+                  },
+               },
+            )
+            console.log('setNewGameForUser posted')
+         } catch (error) {
+            console.log('postiong new game for user Error: ', error)
+         }
+      }
+      setNewGameForUser()
+      onJoinQuiz()
+   }
 
    if (path.length > 0) return <Redirect push to={path} />
 
@@ -25,8 +52,11 @@ const OneTimeDashboard = ({ user }) => {
                {/*<button className="button one-time-button" onClick={onCreateQuiz}>*/}
                {/*  Create Quiz*/}
                {/*</button>*/}
-               <button className="button one-time-button" onClick={onJoinQuiz}>
-                  Start Game
+               <button
+                  className="button one-time-button"
+                  onClick={onStartNewGame}
+               >
+                  Start New Game
                </button>
                <button className="button one-time-button" onClick={onJoinQuiz}>
                   Resume Game
