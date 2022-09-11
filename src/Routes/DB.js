@@ -15,16 +15,39 @@ const DBStart = async () => {
    db = client.db('quiz-app')
 }
 
-const updateUserInDB = async (_uid, _lastQuestion) => {
+const updateScoresInDB = async (_uid, score) => {
+   try {
+      const user = await db.collection('users').findOne({ uid: _uid })
+      if (user.maxScore < score)
+      {
+         await db.collection('users').updateOne(
+           { uid: _uid },
+           {
+              $set: { maxScore: score }
+           }
+         )
+      }
+      await db.collection('users').updateOne(
+        { uid: _uid },
+        {
+           $push: { scores: score }
+        }
+      )
+      console.log('scores updated')
+   } catch (error) {
+      console.log('Error:', error)
+      // res.status(500).json({ error })
+   }
+   // console.log('_lastQuestion: ' + _lastQuestion)
+}
+
+const updateLastQuestionInDB = async (_uid, _lastQuestion) => {
    try {
       await db.collection('users').updateOne(
          { uid: _uid },
          {
-            $set: { lastQuestion: _lastQuestion },
-         },
-      )
-      console.log(
-         'user is now updated in DB with lastQuestion = ' + _lastQuestion,
+            '$set': {lastQuestion: _lastQuestion}
+         }
       )
    } catch (error) {
       console.log('Error:', error)
@@ -54,6 +77,8 @@ const createUser = async (uid, name, email, lastQuestion, res) => {
             name,
             email,
             lastQuestion,
+            maxScore: 0,
+            scores: [],
             createdQuiz: [],
             attemptedQuiz: [],
          })
@@ -120,7 +145,7 @@ const submitQuiz = async (submittedQuiz, res) => {
          const quizData = await validationCursor.toArray()
 
          console.log({ quizData })
-         // If the quiz is already submitted, DONOT submit it.
+         // If the quiz is already submitted, DONOT submit it
          if (quizData[0]) {
             console.log('in quiz already attempted')
             return res.status(200).json({
@@ -138,6 +163,8 @@ const submitQuiz = async (submittedQuiz, res) => {
          console.log('in quiz store')
          const score = Evaluate(quiz[0].questions, submittedQuiz.questions)
          console.log('score : ', score)
+         await updateScoresInDB(submittedQuiz.uid, score)
+         // updateMaxScoreInDB(score)
          res.status(200).json({ score })
 
          // Update in quizzes responses
@@ -193,24 +220,10 @@ const getResponses = (obj, res) => {
       res.status(200).json({ finalResponse })
    }, res)
 }
-const updateLastQuestionInDB = async (_uid) => {
-   try {
-      await db.collection('users').updateOne(
-         { uid: _uid },
-         {
-            $push: {
-               attemptedQuiz: ObjectId(submittedQuiz.quizId),
-            },
-         },
-      )
-   } catch (error) {
-      console.log('Error:', error)
-   }
-}
 
 module.exports.withDB = withDB
 module.exports.getLastQuestionFromDB = getLastQuestionFromDB
-module.exports.updateUserInDB = updateUserInDB
+module.exports.updateLastQuestionInDB = updateLastQuestionInDB
 module.exports.createUser = createUser
 module.exports.createQuiz = createQuiz
 module.exports.submitQuiz = submitQuiz

@@ -62,6 +62,7 @@ const AttemptQuiz = ({ match }) => {
    }, [quizCode, uid])
 
    const handleOptionSelect = (e, option, index) => {
+      console.log('handleOptionSelect')
       const temp = [...attemptedQuestions]
       const options = temp[index].selectedOptions
       console.log('index:' + index)
@@ -194,7 +195,11 @@ const AttemptQuiz = ({ match }) => {
                                     name={`option${index}`}
                                     defaultChecked={index === 0}
                                     onChange={(e) =>
+                                    {
+                                       console.log('option.text: ', option.text)
                                        handleOptionSelect(e, option.text, index)
+
+                                    }
                                     }
                                  />
                               ) : (
