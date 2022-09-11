@@ -145,7 +145,7 @@ const submitQuiz = async (submittedQuiz, res) => {
          const quizData = await validationCursor.toArray()
 
          console.log({ quizData })
-         // If the quiz is already submitted, DONOT submit it.
+         // If the quiz is already submitted, DONOT submit it
          if (quizData[0]) {
             console.log('in quiz already attempted')
             return res.status(200).json({
