@@ -24,7 +24,7 @@ const updateUserInDB = async (_uid, _lastQuestion) => {
          }
       )
    } catch (error) {
-      // console.log('Error:', error)
+      console.log('Error:', error)
       // res.status(500).json({ error })
    }
    // console.log('_lastQuestion: ' + _lastQuestion)
