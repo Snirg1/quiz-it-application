@@ -1,16 +1,15 @@
-@import "../../components/colors.css";
+@import '../../components/colors.css';
 
 #about {
-    width: 100%;
-    height: 100vh;
+   width: 100%;
+   height: 100vh;
 }
 #about-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* margin-top: 70px; */
-    padding: 100px;
-    padding-top: 150px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* margin-top: 70px; */
+   padding: 150px 100px 100px;
 }
 /* label{
   font-size: xx-large;
@@ -18,42 +17,55 @@
 } */
 
 .about-button {
-    margin: 10px;
-    padding: 12px;
-    font-size: 20px;
-    width: 250px;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    border-radius: 50px;
-    border: none;
-    background-image: var(--gradient);
-    color: var(--primary);
-    box-shadow: 0 0 20px #eee;
+   position: relative;
+   margin: 10px;
+   padding: 12px;
+   font-size: 20px;
+   width: 250px;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   border-radius: 50px;
+   border: none;
+   background-image: var(--gradient);
+   color: var(--primary);
+   box-shadow: 0 0 20px #eee;
 }
 
 .about-button:hover {
-    background-position: right center; /* change the direction of the change here */
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none;
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   cursor: pointer;
+   text-decoration: none;
 }
 .about-button:focus {
-    outline: none;
+   outline: none;
 }
 .about-button:active {
-    transform: translateY(4px);
+   transform: translateY(4px);
 }
 
-.about-content{
-    width: 300px;
-    height: 50vh;
+.parent {
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: repeat(3, 1fr);
+   grid-column-gap: 0px;
+   grid-row-gap: 10px;
 }
 
+.about-content {
+   padding: 10px;
+   text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+   width: 1000px;
+   height: 50vh;
+   font-size: 30px;
+   margin-bottom: 20px;
+   text-align: start;
+}
 
 @media (max-width: 768px) {
-    .about-button {
-        width: 200px;
-        padding: 10px;
-    }
+   .about-button {
+      width: 200px;
+      padding: 10px;
+   }
 }

@@ -14,7 +14,7 @@ Router.post('/create', (req, res) => {
 // Update user's last question seen - we will use it for resume game
 Router.post('/paused', (req, res) => {
    const { uid, lastQuestion } = req.body
-    console.log('The last question was: ', lastQuestion)
+   console.log('The last question was: ', lastQuestion)
    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
    DB.updateUserInDB(uid, lastQuestion)
 })
