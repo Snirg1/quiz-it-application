@@ -16,7 +16,7 @@ Router.post('/paused', (req, res) => {
    const { uid, lastQuestion } = req.body
    console.log('The last question was: ', lastQuestion)
    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
-   DB.updateUserInDB(uid, lastQuestion)
+   DB.updateLastQuestionInDB(uid, lastQuestion)
 })
 
 // Get user Data
@@ -73,7 +73,7 @@ Router.get('/:uid/lastQuestion', async (req, res) => {
 Router.post('/:uid/lastQuestion/init', async (req, res) => {
    let uid = req.params.uid
    if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
-   let lastQuestion = await DB.updateUserInDB(uid, 0)
+   let lastQuestion = await DB.updateLastQuestionInDB(uid, 0)
    res.status(200).json({ lastQuestion })
 })
 
