@@ -16,21 +16,15 @@ function Sidebar() {
 	const [signOut, setSignOut] = useState(false)
 	const SidedbarData = [
 		{
-			title: 'Dashboard',
-			path: '/dashboard',
-			icon: <Dashboard />,
-			CName: 'nav-text',
-		},
-		{
-			title: 'Join Quiz',
-			path: '/join-quiz',
+			title: 'Start new game',
+			path: '/attempt-quiz/:quizCode',
 			icon: <MeetingRoom />,
 			CName: 'nav-text',
 		},
 		{
-			title: 'Create Quiz',
-			path: '/create-quiz',
-			icon: <CreateNewFolder />,
+			title: 'Resume game',
+			path: '/join-quiz',
+			icon: <MeetingRoom />,
 			CName: 'nav-text',
 		},
 		{
