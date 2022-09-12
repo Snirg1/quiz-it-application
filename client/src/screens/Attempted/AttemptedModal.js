@@ -30,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
 const AttemptedModal = ({ result, totalScore, showModal, uid }) => {
    const classes = useStyles()
    const [open, setOpen] = useState(showModal)
+   const [maxScoreLocal, setMaxScoreLocal] = useState(0)
    const [isNewRecord, setIsNewRecord] = useState(false)
 
    useEffect(() => {
       setOpen(showModal)
-
       const checkNewRecord = async () => {
          const res = await fetch(`/API/users/${uid}/maxScore`, {
             method: 'GET',
@@ -44,9 +44,12 @@ const AttemptedModal = ({ result, totalScore, showModal, uid }) => {
          })
          let resJson = await res.json()
          const { maxScore } = resJson
-         if (result.score > maxScore) setIsNewRecord(true)
+         setMaxScoreLocal(maxScore)
       }
       checkNewRecord()
+      if (result.score > maxScoreLocal) {
+         setIsNewRecord(true)
+      }
    }, [showModal])
 
    return (
@@ -65,9 +68,12 @@ const AttemptedModal = ({ result, totalScore, showModal, uid }) => {
                      ? 'Not Submitted ! '
                      : `Score: ${result.score}/${totalScore}`}
                </h1>
-               {isNewRecord === true && (
-                  <h1 className="max-score">Congratulations! New Record! </h1>
-               )}
+               <h1 className="score_h2">
+                  {isNewRecord === true
+                     ? 'Great! You have achieved new record!'
+                     : `Maybe next time `}
+               </h1>
+
                <Link to={'/'}>
                   <button className="button wd-200">Main Menu</button>
                </Link>

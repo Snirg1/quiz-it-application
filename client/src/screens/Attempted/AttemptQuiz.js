@@ -252,9 +252,14 @@ const AttemptQuiz = ({ match }) => {
                   <Popup
                      trigger={<button className="button wd-200">Bonus!</button>}
                   >
-                     <div className="popup-content">POP UP CONTENT HERE!</div>
+                     <div className="popup-content">
+                        <a href="https://youtu.be/1Evwgu369Jw" target="_blank">
+                           Press Here to visit
+                        </a>
+                     </div>
                   </Popup>
                )}
+
                <button className="button wd-200" onClick={onPauseGame}>
                   Pause Game
                </button>

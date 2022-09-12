@@ -4,83 +4,79 @@ import './Sidebar.css'
 import firebase from '../../firebase/firebase'
 import { Icon } from '@material-ui/core'
 import {
-	CreateNewFolder,
-	Dashboard,
-	ExitToApp,
-	MeetingRoom,
-	MenuOpenRounded,
-	MenuRounded, PermMedia, Policy,
+   CreateNewFolder,
+   Dashboard,
+   ExitToApp,
+   MeetingRoom,
+   MenuOpenRounded,
+   MenuRounded,
+   PermMedia,
+   Policy,
 } from '@material-ui/icons'
 
 function Sidebar() {
-	const [signOut, setSignOut] = useState(false)
-	const SidedbarData = [
-		{
-			title: 'Start new game',
-			path: '/attempt-quiz/:quizCode',
-			icon: <MeetingRoom />,
-			CName: 'nav-text',
-		},
-		{
-			title: 'Resume game',
-			path: '/join-quiz',
-			icon: <MeetingRoom />,
-			CName: 'nav-text',
-		},
-		{
-			title: 'About',
-			path: '/about',
-			icon: <Policy />,
-			CName: 'nav-text',
-		},
-	]
-	const [sidebar, setSidebar] = useState(false)
-	const showSidebar = () => setSidebar(!sidebar)
-	if (signOut) return <Redirect to='/' />
+   const [signOut, setSignOut] = useState(false)
+   const SidedbarData = [
+      {
+         title: 'Main Menu',
+         path: '/',
+         icon: <MeetingRoom />,
+         CName: 'nav-text',
+      },
+      {
+         title: 'About',
+         path: '/about',
+         icon: <Policy />,
+         CName: 'nav-text',
+      },
+   ]
+   const [sidebar, setSidebar] = useState(false)
+   const showSidebar = () => setSidebar(!sidebar)
+   if (signOut) return <Redirect to="/" />
 
-	return (
-		<div>
-			<Icon className='menu-bars' onClick={showSidebar}>
-				<MenuRounded />
-			</Icon>
-			{/* <FaIcons.FaBars  onClick={} /> */}
-			<nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-				<ul className='nav-menu-items' onClick={showSidebar}>
-					<li className='navbar-toggle'>
-						<Icon>
-							<MenuOpenRounded fontSize='large' />
-						</Icon>
-					</li>
-					{SidedbarData.map((item, index) => {
-						return (
-							<li key={index} className='nav-text'>
-								<Link to={item.path}>
-									<Icon>{item.icon}</Icon>
-									<span className='nav-item-title'>{item.title}</span>
-								</Link>
-							</li>
-						)
-					})}
-					{/* Sign Out Button */}
-					<li className='nav-text sign-out'>
-						<button
-							onClick={() => {
-								console.log('clicked')
-								// setUser({})
-								firebase.auth().signOut()
-								setSignOut(true)
-							}}
-						>
-							<Icon>
-								<ExitToApp />
-							</Icon>
-							<span className='nav-item-title'>{'SignOut'}</span>
-						</button>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	)
+   return (
+      <div>
+         <Icon className="menu-bars" onClick={showSidebar}>
+            <MenuRounded />
+         </Icon>
+         {/* <FaIcons.FaBars  onClick={} /> */}
+         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <ul className="nav-menu-items" onClick={showSidebar}>
+               <li className="navbar-toggle">
+                  <Icon>
+                     <MenuOpenRounded fontSize="large" />
+                  </Icon>
+               </li>
+               {SidedbarData.map((item, index) => {
+                  return (
+                     <li key={index} className="nav-text">
+                        <Link to={item.path}>
+                           <Icon>{item.icon}</Icon>
+                           <span className="nav-item-title">{item.title}</span>
+                        </Link>
+                     </li>
+                  )
+               })}
+               {/* Sign Out Button */}
+               <li className="nav-text sign-out">
+                  <button
+                     onClick={() => {
+                        console.log('clicked')
+                        // setUser({})
+                        firebase.auth().signOut()
+                        setSignOut(true)
+                     }}
+                  >
+                     <Icon>
+                        <ExitToApp />
+                     </Icon>
+                     <span className="nav-item-title">{'SignOut'}</span>
+                  </button>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   )
 }
 
 export default Sidebar

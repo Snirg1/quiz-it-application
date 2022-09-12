@@ -57,9 +57,8 @@
    padding: 10px;
    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
    width: 1000px;
-   height: 50vh;
-   font-size: 30px;
-   margin-bottom: 20px;
+   font-size: 20px;
+   /*margin-bottom: px;*/
    text-align: start;
 }
 
