@@ -21,6 +21,7 @@ const AttemptQuiz = ({ match }) => {
    const [currQuestionIndex, setCurrQuestionIndex] = useState(0)
    const [questionsPerPage, setQuestionsPerPage] = useState(1)
    const [selected, setSelected] = useState('false')
+   const [showFeedback, setShowFeedback] = useState(false)
    const uid = firebase.auth().currentUser.uid
 
    useEffect(() => {
@@ -253,6 +254,7 @@ const AttemptQuiz = ({ match }) => {
                      trigger={<button className="button wd-200">Bonus!</button>}
                   >
                      <div className="popup-content">
+                        <label>Watch to gain empathy!</label>
                         <a
                            href="https://en.wikipedia.org/wiki/Empathy"
                            target="_blank"
@@ -268,6 +270,7 @@ const AttemptQuiz = ({ match }) => {
                      trigger={<button className="button wd-200">Bonus!</button>}
                   >
                      <div className="popup-content">
+                        <label>Watch to gain empathy!</label>{' '}
                         <a
                            href="https://youtu.be/1Evwgu369Jw"
                            target="_blank"
@@ -282,6 +285,7 @@ const AttemptQuiz = ({ match }) => {
                   <Popup
                      trigger={<button className="button wd-200">Bonus!</button>}
                   >
+                     <label>Watch to gain empathy!</label>{' '}
                      <div className="popup-content">
                         <a
                            href="https://iep.utm.edu/empathy-sympathy-in-ethics/"

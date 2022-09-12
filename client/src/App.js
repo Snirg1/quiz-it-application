@@ -22,7 +22,7 @@ import SoundComponent from './SoundComponent'
 import MyButton from './SoundComponent'
 const App = () => {
    const [user, setUser] = useState({})
-   const [mainQuizCode, setMainQuizCode] = useState('631f79dd1597b793f8b61caf')
+   const [mainQuizCode, setMainQuizCode] = useState('631f1f0936d0780a842f3174')
 
    // useEffect hook is invoked when App component is mounted
    // Also, when a user's value changes
