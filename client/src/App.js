@@ -1,6 +1,7 @@
 import { Switch, Route } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import firebase from './firebase/firebase'
+import Sound from 'react-sound'
 
 // Stylesheet
 import './App.css'
@@ -17,7 +18,8 @@ import AttemptQuiz from './screens/Attempted/AttemptQuiz'
 import Appbar from './components/Appbar/Appbar'
 import Responses from './screens/Response/Responses'
 import About from './screens/About/About'
-
+import SoundComponent from './SoundComponent'
+import MyButton from './SoundComponent'
 const App = () => {
    const [user, setUser] = useState({})
    const [mainQuizCode, setMainQuizCode] = useState('631efd3fe5f8618d04dc148d')
@@ -40,6 +42,7 @@ const App = () => {
                         uid: user.uid,
                         name: user.name,
                         email: user.email,
+                        attemptedQuiz: [],
                         lastQuestion: 0,
                      }),
                      headers: { 'Content-Type': 'application/json' },
@@ -60,6 +63,7 @@ const App = () => {
             <Home setUser={setUser} />
          ) : (
             <>
+               <MyButton />
                <div>
                   <Appbar user={user} setUser={setUser} />
                </div>

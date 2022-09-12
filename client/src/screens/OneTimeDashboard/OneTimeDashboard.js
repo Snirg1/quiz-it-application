@@ -10,7 +10,6 @@ const OneTimeDashboard = ({ user }) => {
    // const onCreateQuiz = () => setPath('/create-quiz')
    const onJoinQuiz = () => setPath('/join-quiz')
    const onStartNewGame = () => {
-      // UPDATE DB WITH USER.LASTQUESTION == 0
       const setNewGameForUser = async () => {
          try {
             const res = await fetch(
@@ -21,6 +20,7 @@ const OneTimeDashboard = ({ user }) => {
                      uid: user.uid,
                      name: user.name,
                      email: user.email,
+                     attemptedQuiz: [],
                      lastQuestion: 0,
                   }),
                   headers: {

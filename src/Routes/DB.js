@@ -18,27 +18,24 @@ const DBStart = async () => {
 const updateScoresInDB = async (_uid, score) => {
    try {
       const user = await db.collection('users').findOne({ uid: _uid })
-      if (user.maxScore < score)
-      {
+      if (user.maxScore < score) {
          await db.collection('users').updateOne(
-           { uid: _uid },
-           {
-              $set: { maxScore: score }
-           }
+            { uid: _uid },
+            {
+               $set: { maxScore: score },
+            },
          )
       }
       await db.collection('users').updateOne(
-        { uid: _uid },
-        {
-           $push: { scores: score }
-        }
+         { uid: _uid },
+         {
+            $push: { scores: score },
+         },
       )
       console.log('scores updated')
    } catch (error) {
       console.log('Error:', error)
-      // res.status(500).json({ error })
    }
-   // console.log('_lastQuestion: ' + _lastQuestion)
 }
 
 const updateLastQuestionInDB = async (_uid, _lastQuestion) => {
@@ -46,21 +43,18 @@ const updateLastQuestionInDB = async (_uid, _lastQuestion) => {
       await db.collection('users').updateOne(
          { uid: _uid },
          {
-            '$set': {lastQuestion: _lastQuestion}
-         }
+            $set: { lastQuestion: _lastQuestion },
+         },
       )
    } catch (error) {
       console.log('Error:', error)
-      // res.status(500).json({ error })
    }
-   // console.log('_lastQuestion: ' + _lastQuestion)
 }
 
 DBStart()
 const withDB = async (operations, res) => {
    try {
       await operations(db)
-      // client.close()
    } catch (error) {
       console.log('Error connecting to DB : ', error)
       res.status(500).json({ message: 'Error Connecting to db ', error })
@@ -118,17 +112,10 @@ const getLastQuestionFromDB = async (_uid) => {
       let currUser = await db.collection('users').findOne({
          uid: _uid,
       })
-      // currUser = await currUser.json()
-      // console.log('getLastQuestionFromDB: ', currUser.lastQuestion)
       return currUser.lastQuestion
    } catch (error) {
-      // res.status(200).json({ message: 'Error get Last Question', error })
       console.log('Error : ', error)
    }
-
-   // console.log('CURR USER IN DB LINE 93 is:' + currUser)
-   // console.log('CURR USER LASTQ IN DB LINE 93 is:' + currUser.lastQuestion)
-   // return currUser.lastQuestion
 }
 
 const submitQuiz = async (submittedQuiz, res) => {
@@ -164,7 +151,6 @@ const submitQuiz = async (submittedQuiz, res) => {
          const score = Evaluate(quiz[0].questions, submittedQuiz.questions)
          console.log('score : ', score)
          await updateScoresInDB(submittedQuiz.uid, score)
-         // updateMaxScoreInDB(score)
          res.status(200).json({ score })
 
          // Update in quizzes responses
@@ -221,7 +207,33 @@ const getResponses = (obj, res) => {
    }, res)
 }
 
+const getMaxScoreFromDB = async (_uid) => {
+   try {
+      let currUser = await db.collection('users').findOne({
+         uid: _uid,
+      })
+      return currUser.maxScore
+   } catch (error) {
+      console.log('Error : ', error)
+   }
+}
+
+const updateNewGameForUserInDB = async (_uid) => {
+   try {
+      await db.collection('users').updateOne(
+         { uid: _uid },
+         {
+            $set: { lastQuestion: 0, attemptedQuiz: [] },
+         },
+      )
+      console.log('New game for user is Set in DB')
+   } catch (error) {
+      console.log('Error:', error)
+   }
+}
 module.exports.withDB = withDB
+module.exports.getMaxScoreFromDB = getMaxScoreFromDB
+module.exports.updateNewGameForUserInDB = updateNewGameForUserInDB
 module.exports.getLastQuestionFromDB = getLastQuestionFromDB
 module.exports.updateLastQuestionInDB = updateLastQuestionInDB
 module.exports.createUser = createUser

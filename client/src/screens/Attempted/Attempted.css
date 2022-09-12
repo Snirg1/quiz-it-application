@@ -1,42 +1,131 @@
 .attempted_wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
 }
 .attemp_container {
-  display: flex;
-  height: 500px;
-  width: 700px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  background-color: var(--primary);
-  border-radius: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   display: flex;
+   height: 500px;
+   width: 700px;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 30px;
+   background-color: var(--primary);
+   border-radius: 15px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .att_h2 {
-  font-weight: 300;
-  font-size: 40px;
+   font-weight: 300;
+   font-size: 40px;
 }
 .score_h2 {
-  font-weight: 800;
-  margin-bottom: 30;
-  margin-top: 0;
+   font-weight: 800;
+   margin-bottom: 30px;
+   margin-top: 0;
 }
-
+.label-answers {
+   padding: 20px 20px;
+   font-size: 20px;
+   /*border-radius: 3px;*/
+   /*border-bottom-style: solid;*/
+}
 @media (max-width: 768px) {
-  .attemp_container {
-    width: 400px;
-    height: 480px;
-  }
+   .attemp_container {
+      width: 400px;
+      height: 480px;
+   }
 
-  .att_h2 {
-    font-size: 25px;
-  }
-  .score_h2 {
-    font-size: 35px;
-  }
+   .att_h2 {
+      font-size: 25px;
+   }
+   .score_h2 {
+      font-size: 35px;
+   }
 }
+/*!* Variables*/
+/*–––––––––––––––––––––––––––––––––––––––––––––––––– *!*/
+/*:root {*/
+/*   --primary-c: #2196f3;*/
+/*   --secondary-c: #b2d7f5;*/
+
+/*   --white: #fdfbfb;*/
+
+/*   --text: #082943;*/
+/*   --bg: var(--primary-c);*/
+/*}*/
+
+/*!* Basic Config*/
+/*–––––––––––––––––––––––––––––––––––––––––––––––––– *!*/
+
+/*ul {*/
+/*   list-style-type: none;*/
+/*   padding-left: 50px;*/
+/*   margin: 0;*/
+/*}*/
+
+/*li {*/
+/*   display: block;*/
+/*   position: relative;*/
+/*   padding: 20px 0px;*/
+/*}*/
+
+/*h2 {*/
+/*   margin: 10px 0;*/
+/*   font-weight: 900;*/
+/*}*/
+
+/*!* Card*/
+/*–––––––––––––––––––––––––––––––––––––––––––––––––– *!*/
+/*.card {*/
+/*   display: flex;*/
+/*   flex-direction: column;*/
+/*   background: var(--white);*/
+/*   width: 300px;*/
+/*   padding: 20px 25px;*/
+/*   border-radius: 20px;*/
+/*   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.13);*/
+/*}*/
+
+/*!* Radio Button*/
+/*–––––––––––––––––––––––––––––––––––––––––––––––––– *!*/
+/*input[type='radio'] {*/
+/*   position: absolute;*/
+/*   visibility: hidden;*/
+/*}*/
+
+/*label {*/
+/*   cursor: pointer;*/
+/*   font-weight: 400;*/
+/*}*/
+
+/*.check {*/
+/*   width: 30px;*/
+/*   height: 30px;*/
+/*   position: absolute;*/
+/*   border-radius: 50%;*/
+/*   transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);*/
+/*}*/
+
+/*!* Reset *!*/
+/*input#one ~ .check {*/
+/*   transform: translate(-50px, -25px);*/
+/*   background: var(--secondary-c);*/
+/*}*/
+/*input#two ~ .check {*/
+/*   transform: translate(-50px, -83px);*/
+/*   background: var(--primary-c);*/
+/*   box-shadow: 0 6px 12px rgba(33, 150, 243, 0.35);*/
+/*}*/
+
+/*!* Radio Input #1 *!*/
+/*input#one:checked ~ .check {*/
+/*   transform: translate(-50px, 33px);*/
+/*}*/
+
+/*!* Radio Input #2  *!*/
+/*input#two:checked ~ .check {*/
+/*   transform: translate(-50px, -25px);*/
+/*}*/
