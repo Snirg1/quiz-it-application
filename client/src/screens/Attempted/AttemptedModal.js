@@ -66,7 +66,9 @@ const AttemptedModal = ({ result, totalScore, showModal, uid }) => {
                <h1 className="score_h2">
                   {result.error
                      ? 'Not Submitted ! '
-                     : `Score: ${result.score}/${totalScore}`}
+                     : `Score: ${parseInt(result.score, 10).toFixed(
+                          0,
+                       )}/${totalScore}`}
                </h1>
                <h1 className="score_h2">
                   {isNewRecord === true
