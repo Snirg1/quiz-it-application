@@ -248,13 +248,47 @@ const AttemptQuiz = ({ match }) => {
                      Next Question
                   </button>
                )}
-               {currQuestionIndex === 1 && (
+               {currQuestionIndex === 6 && (
                   <Popup
                      trigger={<button className="button wd-200">Bonus!</button>}
                   >
                      <div className="popup-content">
-                        <a href="https://youtu.be/1Evwgu369Jw" target="_blank">
-                           Press Here to visit
+                        <a
+                           href="https://en.wikipedia.org/wiki/Empathy"
+                           target="_blank"
+                           rel="noreferrer"
+                        >
+                           Empathy - Wikipedia
+                        </a>
+                     </div>
+                  </Popup>
+               )}
+               {currQuestionIndex === 13 && (
+                  <Popup
+                     trigger={<button className="button wd-200">Bonus!</button>}
+                  >
+                     <div className="popup-content">
+                        <a
+                           href="https://youtu.be/1Evwgu369Jw"
+                           target="_blank"
+                           rel="noreferrer"
+                        >
+                           Brené Brown on empathy
+                        </a>
+                     </div>
+                  </Popup>
+               )}
+               {currQuestionIndex === 19 && (
+                  <Popup
+                     trigger={<button className="button wd-200">Bonus!</button>}
+                  >
+                     <div className="popup-content">
+                        <a
+                           href="https://iep.utm.edu/empathy-sympathy-in-ethics/"
+                           target="_blank"
+                           rel="noreferrer"
+                        >
+                           Empathy and Sympathy in Ethics
                         </a>
                      </div>
                   </Popup>
