@@ -259,6 +259,7 @@ const AttemptQuiz = ({ match }) => {
                            href="https://en.wikipedia.org/wiki/Empathy"
                            target="_blank"
                            rel="noreferrer"
+                           style={{ fontSize: '5px' }}
                         >
                            Empathy - Wikipedia
                         </a>
@@ -275,6 +276,7 @@ const AttemptQuiz = ({ match }) => {
                            href="https://youtu.be/1Evwgu369Jw"
                            target="_blank"
                            rel="noreferrer"
+                           style={{ fontSize: '5px' }}
                         >
                            Brené Brown on empathy
                         </a>
@@ -291,6 +293,7 @@ const AttemptQuiz = ({ match }) => {
                            href="https://iep.utm.edu/empathy-sympathy-in-ethics/"
                            target="_blank"
                            rel="noreferrer"
+                           style={{ fontSize: '5px' }}
                         >
                            Empathy and Sympathy in Ethics
                         </a>
