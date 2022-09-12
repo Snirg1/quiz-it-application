@@ -20,7 +20,7 @@ import About from './screens/About/About'
 
 const App = () => {
    const [user, setUser] = useState({})
-   const [mainQuizCode, setMainQuizCode] = useState('631eef269a4e04a21cdef95c')
+   const [mainQuizCode, setMainQuizCode] = useState('631efd3fe5f8618d04dc148d')
 
    // useEffect hook is invoked when App component is mounted
    // Also, when a user's value changes
