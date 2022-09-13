@@ -251,43 +251,10 @@ const AttemptQuiz = ({ match }) => {
                )}
                {currQuestionIndex === 6 && (
                   <Popup
-                     trigger={<button className="button wd-200">Bonus!</button>}
+                     trigger={
+                        <button className="button wd-200">Bonus I</button>
+                     }
                   >
-                     <div className="popup-content">
-                        <label>Watch to gain empathy!</label>
-                        <a
-                           href="https://en.wikipedia.org/wiki/Empathy"
-                           target="_blank"
-                           rel="noreferrer"
-                           style={{ fontSize: '5px' }}
-                        >
-                           Empathy - Wikipedia
-                        </a>
-                     </div>
-                  </Popup>
-               )}
-               {currQuestionIndex === 13 && (
-                  <Popup
-                     trigger={<button className="button wd-200">Bonus!</button>}
-                  >
-                     <div className="popup-content">
-                        <label>Watch to gain empathy!</label>{' '}
-                        <a
-                           href="https://youtu.be/1Evwgu369Jw"
-                           target="_blank"
-                           rel="noreferrer"
-                           style={{ fontSize: '5px' }}
-                        >
-                           Brené Brown on empathy
-                        </a>
-                     </div>
-                  </Popup>
-               )}
-               {currQuestionIndex === 19 && (
-                  <Popup
-                     trigger={<button className="button wd-200">Bonus!</button>}
-                  >
-                     <label>Watch to gain empathy!</label>{' '}
                      <div className="popup-content">
                         <a
                            href="https://iep.utm.edu/empathy-sympathy-in-ethics/"
@@ -295,7 +262,43 @@ const AttemptQuiz = ({ match }) => {
                            rel="noreferrer"
                            style={{ fontSize: '5px' }}
                         >
-                           Empathy and Sympathy in Ethics
+                           I. Watch to gain empathy!
+                        </a>
+                     </div>
+                  </Popup>
+               )}
+               {currQuestionIndex === 13 && (
+                  <Popup
+                     trigger={
+                        <button className="button wd-200">Bonus II</button>
+                     }
+                  >
+                     <div className="popup-content">
+                        <a
+                           href="https://youtu.be/1Evwgu369Jw"
+                           target="_blank"
+                           rel="noreferrer"
+                           style={{ fontSize: '5px' }}
+                        >
+                           II. Watch to gain empathy!
+                        </a>
+                     </div>
+                  </Popup>
+               )}
+               {currQuestionIndex === 19 && (
+                  <Popup
+                     trigger={
+                        <button className="button wd-200">Bonus III</button>
+                     }
+                  >
+                     <div className="popup-content">
+                        <a
+                           href="https://en.wikipedia.org/wiki/Empathy"
+                           target="_blank"
+                           rel="noreferrer"
+                           style={{ fontSize: '5px' }}
+                        >
+                           III. Watch to gain empathy!
                         </a>
                      </div>
                   </Popup>
