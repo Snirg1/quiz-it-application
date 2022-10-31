@@ -2,9 +2,9 @@
   --dark-shadow: #29455a;
   --light-shadow: #b5c2c2;
   --primary: #ffffff;
-  --secondary: #fba1a1;
-  --accent-bhagwa: #1639aa;
-  --accent-red: #610808;
+  --secondary: #ff7700;
+  --accent-bhagwa: #f5ae78;
+  --accent-red: #f5ae78;
   --gradient: linear-gradient(
     to right,
     var(--secondary) -10%,
