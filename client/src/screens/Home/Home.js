@@ -51,10 +51,9 @@ const Home = ({setUser}) => {
 
                     <div id="logo">
                         <div id="logo-name">
-                            <b>The Other Side</b>
+                            <b style={{ fontweight: 600 }}>Quiz</b>It
                         </div>
                         <div id="description">
-                             Welcome!
                         </div>
                     </div>
 

@@ -10,7 +10,7 @@ const Appbar = ({ user, setUser }) => {
       <div className="slider">
         <Sidebar />
         <Link to="/" className="home">
-          The <b>Other</b> Side
+            <b style={{ fontweight: 600 }}>Quiz</b>It
         </Link>
       </div>
       <div className="appbar-user">

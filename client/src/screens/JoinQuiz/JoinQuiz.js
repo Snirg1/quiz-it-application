@@ -14,8 +14,9 @@ const JoinQuiz = () => {
     <div id="join-quiz">
       <div id="join-quiz-div">
         <div id="logo-name">
-          <b style={{ fontweight: 600 }}>Quiz</b>App
+          <b style={{ fontweight: 600 }}>Quiz</b>It
         </div>
+
         <input
           value={code}
           onChange={(e) => setCode(e.target.value)}

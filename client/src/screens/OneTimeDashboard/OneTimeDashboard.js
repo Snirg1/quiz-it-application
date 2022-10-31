@@ -16,7 +16,7 @@ const OneTimeDashboard = ({ user }) => {
       <div id="dashboard-content">
         <div className="dash-btns">
           <h1 className="white">
-            The<b> Other</b> Side
+            <b style={{ fontweight: 600 }}>Quiz</b>It
           </h1>
           <button className="button one-time-button" onClick={onDashboard}>
             Dashboard
@@ -52,6 +52,8 @@ const OneTimeDashboard = ({ user }) => {
               transform="translate(100 100)"
             />
           </svg>
+
+
         </div>
       </div>
     </div>

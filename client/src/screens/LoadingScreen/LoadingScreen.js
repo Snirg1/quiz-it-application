@@ -6,7 +6,7 @@ const LoadingScreen = () => {
   return (
     <div className="loading">
       <h1 className="blue" style={{ fontSize: "5rem" }}>
-        <b>The Other Side</b>
+          <b style={{ fontweight: 600 }}>Quiz</b>It
       </h1>
       {/* <Loader color="#29455a" width={130} height={130}  type="audio" /> */}
       <Loader color="#29455a" width={130} height={130} type="BallTriangle" />
