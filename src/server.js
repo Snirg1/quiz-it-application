@@ -20,6 +20,6 @@ app.use("*", (req, res) => {
 });
 
 // Listening to APIs
-app.listen(process.env.PORT || 6000, () =>
+app.listen(process.env.PORT || 5000, () =>
     console.log("Listening on Port 5000")
 );
