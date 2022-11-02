@@ -1,19 +1,42 @@
-# How to start it?
+# Quiz-It
 
-  `cd empathy-game`
+[https://quiz-it-app.onrender.com](https://quiz-it-app.onrender.com/)
 
-  `npm install`
+Quiz-It is a web application to build, try, and manage custom quizzes.
 
-  `cd client`
 
-  `npm install`
+## Installation
 
-  `cd ..`
+To run it locally, install it by using npm:
+```
+git clone https://github.com/Snirg1/quiz-it-application.git
 
-  `npm start`
+cd quiz-it-application
 
- `cd client`
+npm install
 
- `npm start`
-    
+cd client
+
+npm install
+```
+
+## Activation
+```
+cd quiz-it-application
+
+npm start
+
+cd client
+
+npm start
+```
+
+## Technologies and tools
+
+* Client - React.js
+* Server - Node.js + Express.js
+* Database -  MongoDB
+* Auth - Firebase
+* Deployment - Render 
+
 
