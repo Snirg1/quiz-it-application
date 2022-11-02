@@ -17,9 +17,7 @@ import NotFoundPage from './screens/NotFoundPage'
 import AttemptQuiz from './screens/Attempted/AttemptQuiz'
 import Appbar from './components/Appbar/Appbar'
 import Responses from './screens/Response/Responses'
-import About from './screens/About/About'
-import SoundComponent from './SoundComponent'
-import MyButton from './SoundComponent'
+
 const App = () => {
    const [user, setUser] = useState({})
    const [mainQuizCode, setMainQuizCode] = useState('631f94860b91454dc86e31c0')
@@ -63,7 +61,6 @@ const App = () => {
             <Home setUser={setUser} />
          ) : (
             <>
-               <MyButton />
                <div>
                   <Appbar user={user} setUser={setUser} />
                </div>
@@ -73,9 +70,6 @@ const App = () => {
                   </Route>
                   <Route path="/dashboard">
                      <UserDashboard user={user} />
-                  </Route>
-                  <Route path="/about">
-                     <About />
                   </Route>
                   <Route path="/create-quiz">
                      <CreateQuiz user={user} />

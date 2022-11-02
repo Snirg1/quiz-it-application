@@ -1,12 +1,12 @@
 {
-  "name": "empaty-game-backend",
+  "name": "quiz-it-app-backend",
   "version": "1.0.0",
   "description": "",
   "main": "src/server",
+  "proxy": "http://localhost:8000",
   "scripts": {
     "start": "nodemon src/server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client "
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Snir Gueta",

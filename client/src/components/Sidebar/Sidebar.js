@@ -24,9 +24,21 @@ function Sidebar() {
          CName: 'nav-text',
       },
       {
-         title: 'About',
-         path: '/about',
-         icon: <Policy />,
+         title: 'Dashboard',
+         path: '/dashboard',
+         icon: <Dashboard />,
+         CName: 'nav-text',
+      },
+      {
+         title: 'Join Quiz',
+         path: '/join-quiz',
+         icon: <MeetingRoom />,
+         CName: 'nav-text',
+      },
+      {
+         title: 'Create Quiz',
+         path: '/create-quiz',
+         icon: <CreateNewFolder />,
          CName: 'nav-text',
       },
    ]
