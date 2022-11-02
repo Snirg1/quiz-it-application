@@ -2,15 +2,28 @@
 
 [https://quiz-it-app.onrender.com](https://quiz-it-app.onrender.com/)
 
-Quiz-It is a web application to build, try, and manage custom quizzes.
+##### Quiz-It is a web application to build, try, and manage custom quizzes.
 
-![alt text](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
+#### Log-in page:
+##### Auth with Firebase. 
 
-![alt text](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
 
-![alt text]([https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true](https://github.com/Snirg1/quiz-it-application/blob/main/quiz%20code%20ss.png?raw=true))
+![](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
 
-![alt text](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
+#### Create quiz:
+##### User can create custom quiz and try it out by himself or by publish quiz ID code to other users.
+
+
+![](https://github.com/Snirg1/quiz-it-application/blob/main/quiz%20code%20ss.png?raw=true)
+
+#### Dashboard:
+##### Information about the quizzes is saved on user's Dashboard
+
+
+![](https://github.com/Snirg1/quiz-it-application/blob/main/dashboard%20ss.png?raw=true)
+
+
+
 
 ## Installation
 
