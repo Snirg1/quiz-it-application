@@ -5,6 +5,13 @@
 Quiz-It is a web application to build, try, and manage custom quizzes.
 
 ![alt text](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
+
+![alt text](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
+
+![alt text]([https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true](https://github.com/Snirg1/quiz-it-application/blob/main/quiz%20code%20ss.png?raw=true))
+
+![alt text](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
+
 ## Installation
 
 To run it locally, install it by using npm:
