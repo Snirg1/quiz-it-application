@@ -1,28 +1,42 @@
-# Quiz-It
+# Quiz-It - [https://quiz-it-app.onrender.com](https://quiz-it-app.onrender.com/)
 
-[https://quiz-it-app.onrender.com](https://quiz-it-app.onrender.com/)
 
-##### Quiz-It is a web application to build, try, and manage custom quizzes.
+## Project Idea
+A simple quiz application which consists of MCQs (single or multi choice). 
+A user can create quiz and share the quiz among other users using the quiz ID code.
+Users can submit quizzes and get their feedback about thier results,
+also the user who created the quiz can see the responses. 
 
-#### Log-in page:
-##### Auth with Firebase. 
+
+# Application Outline
+## Major Entities
+1. **User**: The user can create a quiz and submit a submission. Also, can see the submissions of the quiz which was created by him.
+1. **Quiz**: The quiz which is created by the user will have a unique Id which user can share among other users.
+
+## Functionalities
+**Login/Sign Up**: Google Auth using Firebase
 
 
 ![](https://github.com/Snirg1/quiz-it-application/blob/main/login%20ss.png?raw=true)
 
-#### Create quiz:
-##### User can create custom quiz and try it out by himself or by publish quiz ID code to other users.
 
+**Create Quiz Page**: Create a quiz step by step.
 
 ![](https://github.com/Snirg1/quiz-it-application/blob/main/quiz%20code%20ss.png?raw=true)
 
-#### Dashboard:
-##### Information about the quizzes is saved on user's Dashboard
 
+**Submission view**: View the details of submission for a particular quiz.
 
 ![](https://github.com/Snirg1/quiz-it-application/blob/main/dashboard%20ss.png?raw=true)
 
 
+## Technical Details
+- Front End: React.js & Material UI 
+- Back End: Express.js & Node.js 
+- Database: MongoDB (NoSQL)
+- Auth - Firebase
+- Other: npm modules 
+- Deployment: Render
 
 
 ## Installation
@@ -50,12 +64,4 @@ cd client
 
 npm start
 ```
-
-## Technologies and tools
-
-* Client - React.js
-* Server - Node.js + Express.js
-* Database -  MongoDB
-* Auth - Firebase
-* Deployment - Render 
 
